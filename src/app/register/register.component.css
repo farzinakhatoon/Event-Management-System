@@ -1,0 +1,9 @@
+form {
+  max-width: 500px;
+  margin: auto;
+  border: 1px solid #333;
+}
+
+input::placeholder {
+  color: #ccc;
+}

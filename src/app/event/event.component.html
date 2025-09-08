@@ -1,0 +1,17 @@
+<div class="container mt-5">
+  <h2 class="text-dark mb-4">Manage Events</h2>
+  <div class="row">
+    <div class="col-md-6" *ngFor="let event of events">
+      <div class="card bg-dark text-light mb-3">
+        <div class="card-body">
+          <h5 class="card-title">{{ event.name }}</h5>
+          <p class="card-text">Category: {{ event.category }}</p>
+          <p class="card-text">Location: {{ event.location }}</p>
+          <p class="card-text">Date: {{ event.date }}</p>
+          <button class="btn btn-outline-primary btn-sm">Edit</button>
+          <button class="btn btn-outline-danger btn-sm ms-2">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

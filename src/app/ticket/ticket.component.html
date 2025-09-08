@@ -1,0 +1,28 @@
+<div class="container mt-5">
+  <h2 class="text-light mb-4 text-dark">Book Tickets</h2>
+  <form (ngSubmit)="bookTicket()" class="bg-dark p-4 rounded shadow mb-4">
+    <div class="mb-3">
+      <label class="form-label text-light">Select Event</label>
+      <select class="form-select bg-secondary text-light" [(ngModel)]="selectedEvent" name="event" required>
+        <option value="" disabled>Select an event</option>
+        <option value="Tech Summit">Tech Summit</option>
+        <option value="Art Expo">Art Expo</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label class="form-label text-light">Booking Date</label>
+      <input type="date" class="form-control bg-secondary text-light" [(ngModel)]="bookingDate" name="date" required>
+    </div>
+    <button type="submit" class="btn btn-primary w-100">Book Ticket</button>
+  </form>
+
+  <h4 class="text-dark">Your Tickets</h4>
+  <div *ngFor="let ticket of tickets; let i = index" class="card bg-dark text-light mb-3">
+    <div class="card-body">
+      <p><strong>Event:</strong> {{ ticket.event }}</p>
+      <p><strong>Date:</strong> {{ ticket.date }}</p>
+      <p><strong>Status:</strong> {{ ticket.status }}</p>
+      <button *ngIf="ticket.status === 'Confirmed'" class="btn btn-outline-danger btn-sm" (click)="cancelTicket(i)">Cancel</button>
+    </div>
+  </div>
+</div>

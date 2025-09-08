@@ -1,0 +1,34 @@
+<div class="container mt-5">
+  <h2 class="text-dark mb-4">Submit Feedback</h2>
+  <form (ngSubmit)="submitFeedback()" class="bg-dark p-4 rounded shadow mb-4">
+    <div class="mb-3">
+      <label class="form-label text-light">Event</label>
+      <select class="form-select bg-secondary text-light" [(ngModel)]="userFeedback.event" name="event" required>
+        <option value="" disabled>Select an event</option>
+        <option value="Tech Summit">Tech Summit</option>
+        <option value="Art Expo">Art Expo</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label class="form-label text-light">Rating</label>
+      <select class="form-select bg-secondary text-light" [(ngModel)]="userFeedback.rating" name="rating" required>
+        <option value="" disabled>Select rating</option>
+        <option *ngFor="let r of [1,2,3,4,5]" [value]="r">{{ r }} Star</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label class="form-label text-light">Comments</label>
+      <textarea class="form-control bg-secondary text-light" rows="3" [(ngModel)]="userFeedback.comments" name="comments" required></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary w-100">Submit</button>
+  </form>
+
+  <h4 class="text-dark">Previous Feedback</h4>
+  <div *ngFor="let fb of feedbackList" class="card bg-dark text-light mb-3">
+    <div class="card-body">
+      <h5 class="card-title">{{ fb.event }}</h5>
+      <p class="card-text">Rating: {{ fb.rating }} Star</p>
+      <p class="card-text">Comments: {{ fb.comments }}</p>
+    </div>
+  </div>
+</div>
